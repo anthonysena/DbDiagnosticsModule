@@ -1,0 +1,6 @@
+{
+  "Name": "dbProfileModule",
+  "Version": "0.0.1",
+  "Dependencies": [],
+  "TablePrefix": "dp_"
+}

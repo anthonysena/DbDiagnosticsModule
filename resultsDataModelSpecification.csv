@@ -1,0 +1,11 @@
+table_name,column_name,data_type,is_required,primary_key,empty_is_na
+achilles_results,analysis_id,int,yes,yes,no
+achilles_results,stratum_1,varchar,no,no,no
+achilles_results,stratum_2,varchar,no,no,no
+achilles_results,stratum_3,varchar,no,no,no
+achilles_results,stratum_4,varchar,no,no,no
+achilles_results,stratum_5,varchar,no,no,no
+achilles_results,count_value,bigint,no,no,no
+achilles_results,visit_concept_name,varchar,no,no,no
+achilles_results,visit_ancestor_concept_id,bigint,no,no,no
+achilles_results,visit_ancestor_concept_name,varchar,no,no,no
