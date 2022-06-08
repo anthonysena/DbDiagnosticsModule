@@ -9,6 +9,6 @@ createDbProfileModuleSpecifications <- function()
                          remoteRepo = "github.com",
                          remoteUsername = "ohdsi")
 						 
-  class(specifications) <- c("dbProfileModuleSpecifications", "ModuleSpecifications")
+  class(specifications) <- c("DbProfileModuleSpecifications", "ModuleSpecifications")
   return(specifications)
 }
