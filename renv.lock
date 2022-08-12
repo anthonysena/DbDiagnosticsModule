@@ -287,13 +287,13 @@
 		},
 		"Achilles" : {
 			"Package" : "Achilles",
-			"Version" : "1.7",
+			"Version" : "1.7.0",
             "Source" : "GitHub",
             "RemoteType" : "github",
             "RemoteHost" : "api.github.com",
             "RemoteRepo" : "Achilles",
             "RemoteUsername" : "ohdsi",
-            "RemoteRef" : "v1.7"
+            "RemoteRef" : "v1.7.0"
 		},
 		"DataQualityDashboard" : {
 			"Package" : "DataQualityDashboard",
@@ -305,16 +305,26 @@
             "RemoteUsername" : "ohdsi",
             "RemoteRef" : "v1.4.1"
 		},
-		"CohortGenerator" : {
-			"Package" : "CohortGenerator",
-			"Version" : "0.5.0",
-			"Source" : "GitHub",
-			"RemoteType" : "github",
-			"RemoteHost" : "api.github.com",
-			"RemoteRepo" : "CohortGenerator",
-			"RemoteUsername" : "ohdsi",
-			"RemoteRef" : "v0.5.0"
-		}
+		"AresIndexer" : {
+			"Package" : "AresIndexer",
+			"Version" : "0.2",
+            "Source" : "GitHub",
+            "RemoteType" : "github",
+            "RemoteHost" : "api.github.com",
+            "RemoteRepo" : "AresIndexer",
+            "RemoteUsername" : "ohdsi",
+            "RemoteRef" : "v0.2-beta"
+		},
+		"DbProfile" : {
+			"Package" : "DbProfile",
+			"Version" : "0.1",
+            "Source" : "GitHub",
+            "RemoteType" : "github",
+            "RemoteHost" : "api.github.com",
+            "RemoteRepo" : "DbProfile",
+            "RemoteUsername" : "ohdsi",
+            "RemoteRef" : "v0.1"
+		},
 		"backports" : {
 			"Package" : "backports",
 			"Version" : "1.4.1",
@@ -324,6 +334,18 @@
 		"checkmate" : {
 			"Package" : "checkmate",
 			"Version" : "2.1.0",
+			"Source" : "Repository",
+			"Repository" : "CRAN"
+		},
+		"digest" : {
+			"Package" : "digest",
+			"Version" : "0.6.29",
+			"Source" : "Repository",
+			"Repository" : "CRAN"
+		},
+		"sqldf" : {
+			"Package" : "sqldf",
+			"Version" : "0.4-11",
 			"Source" : "Repository",
 			"Repository" : "CRAN"
 		},
