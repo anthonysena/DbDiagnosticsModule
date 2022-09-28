@@ -1,1 +1,1 @@
-# DbProfileModule
+# DbDiagnosticsModule
