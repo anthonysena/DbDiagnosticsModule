@@ -16,12 +16,6 @@
 
 #' Create specifications for the DbProfileModule
 #'
-#' @param connectionDetails         A connectionDetails object for connecting to the database containing the DbProfile results
-#'                    
-#' @param resultsDatabaseSchema     The fully qualified database name of the results schema where the DbProfile results are housed
-#' 
-#' @param resultsTableName					The name of the table in the results schema with the DbProfile results
-#'                    
 #' @param dataDiagnosticsSettings		A list of settings created from DataDiagnostics::createDataDiagnosticsSettings() function
 #'                    
 #'
@@ -29,10 +23,7 @@
 #' An object of type `DbDiagnosticsModuleSpecifications`.
 #'
 #' @export
-createDbDiagnosticsModuleSpecifications <- function(connectionDetails,
-                                                resultsDatabaseSchema,
-                                                resultsTableName,
-                                                dataDiagnosticsSettings) {
+createDbDiagnosticsModuleSpecifications <- function(dataDiagnosticsSettings) {
   analysis <- list()
   for (name in names(formals(createDbDiagnosticsModuleSpecifications))) {
     analysis[[name]] <- get(name)

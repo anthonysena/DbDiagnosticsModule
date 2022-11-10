@@ -19,6 +19,8 @@
 execute <- function(jobContext) {
   rlang::inform("Validating inputs")
   checkmate::assert_list(x = jobContext)
+  
+  # TODO add a check to make sure the table dp_achilles_results_augmented exists
 
   if (is.null(jobContext$settings)) {
     stop("Analysis settings not found in job context")
@@ -35,9 +37,9 @@ execute <- function(jobContext) {
   rlang::inform("Executing")
 
   DbDiagnostics::executeDbDiagnostics(
-    connectionDetails       = jobContext$settings$connectionDetails,
-    resultsDatabaseSchema   = jobContext$settings$resultsDatabaseSchema,
-    resultsTableName        = jobContext$settings$resultsTableName,
+    connectionDetails       = jobContext$moduleExecutionSettings$resultsConnectionDetailsReference, #this is here because I need to connect to the results database to get the dbProfile results
+    resultsDatabaseSchema   = jobContext$moduleExecutionSettings$resultsDatabaseSchema,
+    resultsTableName        = "dp_achilles_results_augmented",
     outputFolder            = resultsFolder,
     dataDiagnosticsSettings = jobContext$settings$dataDiagnosticsSettings
   )
@@ -51,8 +53,6 @@ execute <- function(jobContext) {
             to = file.path(resultsFolder, "resultsDataModelSpecification.csv"))
   
   # Zip the results 
-  # TODO -------------------- 
-  # make sure this is right add dynamic name of files or should I zip up all DbDiagnostics results for all analyses in one file?
   zipFile <- file.path(resultsFolder, "dbDiagnosticsResults.zip")
   resultFiles <- list.files(resultsFolder,
                             pattern = ".*\\.csv$"

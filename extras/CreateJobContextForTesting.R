@@ -16,9 +16,9 @@ getModuleInfo <- function() {
 dbDiagnosticsSettings <- DbDiagnostics::createDataDiagnosticsSettings()
 
 dbDiagnosticsModuleSpecifications <- createDbDiagnosticsModuleSpecifications(
-  connectionDetails = "dummy",
-  resultsDatabaseSchema = "dummy",
-  resultsTableName = "dummyTable",
+  # connectionDetails = "dummy",
+  # resultsDatabaseSchema = "dummy",
+  # resultsTableName = "dummyTable",
   dataDiagnosticsSettings = dbDiagnosticsSettings
 )
 
@@ -26,11 +26,9 @@ dbDiagnosticsModuleSpecifications <- createDbDiagnosticsModuleSpecifications(
 analysisSpecifications <- createEmptyAnalysisSpecificiations() %>%
   addModuleSpecifications(dbDiagnosticsModuleSpecifications)
 
-executionSettings <-   Strategus::createCdmExecutionSettings(
-  connectionDetailsReference = "dummy",
-  workDatabaseSchema = "main",
-  cdmDatabaseSchema = "main",
-  cohortTableNames = CohortGenerator::getCohortTableNames(cohortTable = "cohort"),
+executionSettings <-   Strategus::createResultsExecutionSettings(
+  resultsConnectionDetailsReference = "dummy",
+  resultsDatabaseSchema = "dummy",
   workFolder = "dummy",
   resultsFolder = "dummy",
   minCellCount = 5
