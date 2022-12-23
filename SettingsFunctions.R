@@ -31,9 +31,9 @@ createDbDiagnosticsModuleSpecifications <- function(dataDiagnosticsSettings) {
   }
   
   specifications <- list(module = "DbDiagnosticsModule",
-                         version = "0.0.1",
+                         version = "0.0.1-4",
                          remoteRepo = "github.com",
-                         remoteUsername = "ohdsi",
+                         remoteUsername = "anthonysena",
                          settings = analysis)
   class(specifications) <- c("DbDiagnosticsModuleSpecifications", "ModuleSpecifications")
   return(specifications)
