@@ -87,10 +87,14 @@
 		},
 		"DataQualityDashboard" : {
 			"Package" : "DataQualityDashboard",
-			"Version" : "2.0.0.100",
-			"Source" : "unknown",
+			"Version" : "2.0.0",
+			"Source" : "GitHub",
 			"Remotes" : "ohdsi/Eunomia",
-			"Hash" : "901e3209f2f31d4e86d478c4489c300a",
+			"RemoteType" : "github",
+			"RemoteHost" : "api.github.com",
+			"RemoteRepo" : "DataQualityDashboard",
+			"RemoteUsername" : "OHDSI",
+			"RemoteRef" : "v2.0.0",
 			"Requirements" : [
 				"DatabaseConnector",
 				"ParallelLogger",
