@@ -46,11 +46,25 @@ execute <- function(jobContext) {
 
   rlang::inform("Zipping up results")
 
-  # Copy in the resultsDataModelSpecification.csv
-  # TODO --------------------
-  # The file names are dynamic, how does that play into the specification?
-  file.copy(from = "resultsDataModelSpecification.csv",
-            to = file.path(resultsSubFolder, "resultsDataModelSpecification.csv"))
+  # Set the table names in resultsDataModelSpecification.csv
+  moduleInfo <- getModuleInfo()
+  resultsDataModel <- CohortGenerator::readCsv(
+    file = "resultsDataModelSpecification.csv",
+    warnOnCaseMismatch = FALSE
+  )
+  newTableNames <- paste0(moduleInfo$TablePrefix, resultsDataModel$tableName)
+  file.rename(
+    file.path(resultsSubFolder, paste0(unique(resultsDataModel$tableName), ".csv")),
+    file.path(resultsSubFolder, paste0(unique(newTableNames), ".csv"))
+  )
+  resultsDataModel$tableName <- newTableNames
+  CohortGenerator::writeCsv(
+    x = resultsDataModel,
+    file = file.path(resultsSubFolder, "resultsDataModelSpecification.csv"),
+    warnOnCaseMismatch = FALSE,
+    warnOnFileNameCaseMismatch = FALSE,
+    warnOnUploadRuleViolations = FALSE
+  )
   
   # Zip the results 
   zipFile <- file.path(resultsSubFolder, "dbDiagnosticsResults.zip")
@@ -64,4 +78,10 @@ execute <- function(jobContext) {
     files = resultFiles
   )
   rlang::inform(paste("Results available at:", zipFile))
+}
+
+# Private methods -------------------------
+getModuleInfo <- function() {
+  checkmate::assert_file_exists("MetaData.json")
+  return(ParallelLogger::loadSettingsFromJson("MetaData.json"))
 }
