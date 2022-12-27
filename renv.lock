@@ -132,8 +132,8 @@
 			"RemoteType" : "github",
 			"RemoteHost" : "api.github.com",
 			"RemoteRepo" : "DbDiagnostics",
-			"RemoteUsername" : "ohdsi",
-			"RemoteRef" : "9b1a1c97ff5835965bfd7f6d9510896d720cdbc5",
+			"RemoteUsername" : "anthonysena",
+			"RemoteRef" : "f3d9420d689499dada446c49382568d9df346f4b",
 			"Requirements" : [
 				"Achilles",
 				"CohortGenerator",

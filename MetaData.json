@@ -1,6 +1,6 @@
 {
   "Name": "DbDiagnosticsModule",
-  "Version": "0.0.1-6",
+  "Version": "0.0.1-7",
   "Dependencies": [],
   "TablePrefix": "dd_"
 }
