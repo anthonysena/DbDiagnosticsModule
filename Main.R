@@ -37,7 +37,7 @@ execute <- function(jobContext) {
   rlang::inform("Executing")
 
   DbDiagnostics::executeDbDiagnostics(
-    connectionDetails       = jobContext$moduleExecutionSettings$resultsConnectionDetailsReference, #this is here because I need to connect to the results database to get the dbProfile results
+    connectionDetails       = jobContext$moduleExecutionSettings$resultsConnectionDetails, #this is here because I need to connect to the results database to get the dbProfile results
     resultsDatabaseSchema   = jobContext$moduleExecutionSettings$resultsDatabaseSchema,
     resultsTableName        = "dp_achilles_results_augmented",
     outputFolder            = resultsFolder,
