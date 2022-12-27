@@ -133,7 +133,7 @@
 			"RemoteHost" : "api.github.com",
 			"RemoteRepo" : "DbDiagnostics",
 			"RemoteUsername" : "anthonysena",
-			"RemoteRef" : "0b8732ff94ef6df2b7e04e67cbab690ee13695e7",
+			"RemoteRef" : "078507032c343719b96ce9c949c2d4b9022da33b",
 			"Requirements" : [
 				"Achilles",
 				"CohortGenerator",
