@@ -32,7 +32,7 @@ execute <- function(jobContext) {
     stop("Execution settings not found in job context")
   }
   
-  resultsFolder <- jobContext$moduleExecutionSettings$resultsFolder
+  resultsSubFolder <- jobContext$moduleExecutionSettings$resultsSubFolder
   
   rlang::inform("Executing")
 
@@ -40,7 +40,7 @@ execute <- function(jobContext) {
     connectionDetails       = jobContext$moduleExecutionSettings$resultsConnectionDetails, #this is here because I need to connect to the results database to get the dbProfile results
     resultsDatabaseSchema   = jobContext$moduleExecutionSettings$resultsDatabaseSchema,
     resultsTableName        = "dp_achilles_results_augmented",
-    outputFolder            = resultsFolder,
+    outputFolder            = resultsSubFolder,
     dataDiagnosticsSettings = jobContext$settings$dataDiagnosticsSettings
   )
 
@@ -50,14 +50,14 @@ execute <- function(jobContext) {
   # TODO --------------------
   # The file names are dynamic, how does that play into the specification?
   file.copy(from = "resultsDataModelSpecification.csv",
-            to = file.path(resultsFolder, "resultsDataModelSpecification.csv"))
+            to = file.path(resultsSubFolder, "resultsDataModelSpecification.csv"))
   
   # Zip the results 
-  zipFile <- file.path(resultsFolder, "dbDiagnosticsResults.zip")
-  resultFiles <- list.files(resultsFolder,
+  zipFile <- file.path(resultsSubFolder, "dbDiagnosticsResults.zip")
+  resultFiles <- list.files(resultsSubFolder,
                             pattern = ".*\\.csv$"
   )
-  oldWd <- setwd(resultsFolder)
+  oldWd <- setwd(resultsSubFolder)
   on.exit(setwd(oldWd), add = TRUE)
   DatabaseConnector::createZipFile(
     zipFile = zipFile,
